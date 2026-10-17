@@ -2266,3 +2266,98 @@ h3 {
     width: 100%;
   }
 }
+
+/* Resume skill verification and review controls. */
+.resume-skills-guidance {
+  font-size: 10px;
+  line-height: 1.8;
+  color: #60778c;
+  margin: -4px 0 14px;
+}
+.resume-skills .resume-skill-filters button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-align: left;
+}
+.resume-skill-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin: 4px 0 8px;
+}
+.resume-skill-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  font-size: 10px;
+  color: #496b83;
+  cursor: pointer;
+}
+.resume-skill-options input {
+  accent-color: #204f70;
+  width: 14px;
+  height: 14px;
+}
+.resume-skill-count {
+  font-size: 9px;
+  line-height: 1.7;
+  color: #60778c;
+  margin: 0 0 16px;
+}
+.resume-skills .resume-skill-results {
+  align-items: start;
+  gap: 15px 12px;
+}
+.resume-skills .resume-skill-results.single-category {
+  grid-template-columns: 1fr;
+}
+.resume-skills .resume-skill-group {
+  min-width: 0;
+  padding: 13px 11px;
+  border: 1px solid #dce5ee;
+  background: #ffffff80;
+  border-radius: 6px;
+}
+.resume-skills .resume-skill-group h4 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  line-height: 1.6;
+}
+.resume-skills .resume-skill-group h4 svg {
+  flex-shrink: 0;
+  color: #477a98;
+}
+.resume-skills .resume-skill-group li {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.resume-skills .resume-skill-group li small {
+  font-size: 8px;
+  line-height: 1.5;
+  color: #496b83;
+}
+.resume-skills .resume-skill-group li.proposed-skill {
+  border-style: dashed;
+  background: #f4f2ed;
+  color: #706149;
+  border-color: #b5a78e;
+}
+.resume-skills .resume-skill-group li.proposed-skill small {
+  color: #706149;
+}
+.resume-skills-empty {
+  font-size: 10px;
+  line-height: 1.8;
+  color: #688094;
+}
+@media (max-width: 700px) {
+  .resume-skill-options label {
+    min-height: 40px;
+  }
+}

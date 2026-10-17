@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ResumeSkills } from "./ResumeSkills";
 import {
   GraduationCap,
   Network,
@@ -10,40 +10,7 @@ import {
   FileText,
 } from "lucide-react";
 
-const skillGroups = [
-  {
-    name: "Networking",
-    skills: ["DNS", "DHCP", "VLANs", "Firewall rules", "NAT"],
-  },
-  {
-    name: "Windows administration",
-    skills: [
-      "Windows Server 2022",
-      "Windows 11",
-      "Active Directory",
-      "Group Policy",
-      "User configuration",
-      "File permissions",
-    ],
-  },
-  { name: "Infrastructure tools", skills: ["VMware", "GNS3", "pfSense"] },
-  {
-    name: "IT troubleshooting",
-    skills: [
-      "Customer connectivity",
-      "DNS issues",
-      "Gateway issues",
-      "Latency",
-      "Basic POS / kiosk support",
-    ],
-  },
-];
-
 export function Resume() {
-  const [selected, setSelected] = useState("All skills");
-  const visibleGroups = skillGroups.filter(
-    (group) => selected === "All skills" || selected === group.name,
-  );
   return (
     <div className="resume-dashboard">
       <header className="resume-hero">
@@ -167,52 +134,7 @@ export function Resume() {
             </div>
           </details>
         </div>
-        <section
-          className="resume-skills"
-          aria-labelledby="resume-skills-title"
-        >
-          <div className="resume-section-heading">
-            <h3 id="resume-skills-title">Technical skills</h3>
-            <span>Explore by area</span>
-          </div>
-          <div
-            className="resume-skill-filters"
-            role="group"
-            aria-label="Filter technical skills"
-          >
-            {["All skills", ...skillGroups.map((group) => group.name)].map(
-              (name) => (
-                <button
-                  key={name}
-                  aria-pressed={selected === name}
-                  onClick={() => setSelected(name)}
-                >
-                  {name}
-                </button>
-              ),
-            )}
-          </div>
-          <div
-            className="resume-skill-results"
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            {visibleGroups.map((group) => (
-              <section
-                className="resume-skill-group"
-                key={group.name}
-                aria-label={group.name}
-              >
-                <h4>{group.name}</h4>
-                <ul>
-                  {group.skills.map((skill) => (
-                    <li key={skill}>{skill}</li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
-        </section>
+        <ResumeSkills />
         <div className="resume-bottom-note">
           <FileText size={14} aria-hidden="true" />
           <span>Professional overview · Faraj Enam Ariz</span>

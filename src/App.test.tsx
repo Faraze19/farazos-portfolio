@@ -89,19 +89,25 @@ describe("desktop applications", () => {
     expect(resume.getByText("Self-directed technical project")).toBeTruthy();
     const skills = resume.getByRole("region", { name: "Technical skills" });
     const groups = within(skills);
-    expect(groups.getByRole("region", { name: "Networking" })).toBeTruthy();
+    expect(
+      groups.getByRole("region", { name: "Networking & Infrastructure" }),
+    ).toBeTruthy();
     fireEvent.click(
-      groups.getByRole("button", { name: "Windows administration" }),
+      groups.getByRole("button", { name: "Systems Administration" }),
     );
     expect(
       groups
-        .getByRole("button", { name: "Windows administration" })
+        .getByRole("button", { name: "Systems Administration" })
         .getAttribute("aria-pressed"),
     ).toBe("true");
-    expect(groups.queryByRole("region", { name: "Networking" })).toBeNull();
+    expect(
+      groups.queryByRole("region", { name: "Networking & Infrastructure" }),
+    ).toBeNull();
     expect(groups.getByText("Active Directory")).toBeTruthy();
     fireEvent.click(groups.getByRole("button", { name: "All skills" }));
-    expect(groups.getByRole("region", { name: "Networking" })).toBeTruthy();
+    expect(
+      groups.getByRole("region", { name: "Networking & Infrastructure" }),
+    ).toBeTruthy();
     const panel = screen.getByRole("region", { name: "Resume window" });
     expect(
       panel.querySelector('a[download], a[href^="tel:"], a[href^="mailto:"]'),
