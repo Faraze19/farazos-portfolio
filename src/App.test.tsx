@@ -46,7 +46,10 @@ describe("desktop applications", () => {
       ).toBeTruthy();
     }
     expect(
-      screen.getByRole("heading", { name: "Faraj Enam Ariz." }),
+      within(screen.getByRole("region", { name: "About Me window" })).getByRole(
+        "heading",
+        { name: "Faraj Enam Ariz." },
+      ),
     ).toBeTruthy();
     expect(screen.getByText("RESUME / FARAJ ENAM ARIZ")).toBeTruthy();
     expect(
@@ -58,6 +61,52 @@ describe("desktop applications", () => {
         "No verified certifications listed yet. Credential names, dates and verification links will be added only after confirmation.",
       ),
     ).toBeTruthy();
+  });
+  it("keeps resume downloads unavailable and filters the supplied technical skills", () => {
+    render(<App />);
+    fireEvent.click(
+      within(
+        screen.getByRole("navigation", { name: "Desktop applications" }),
+      ).getByRole("button", { name: "Resume" }),
+    );
+    const resume = within(
+      screen.getByRole("region", { name: "Resume window" }),
+    );
+    const download = resume.getByRole("button", {
+      name: "Download Resume (PDF)",
+    }) as HTMLButtonElement;
+    expect(download.disabled).toBe(true);
+    expect(download.getAttribute("aria-describedby")).toBe("resume-pdf-status");
+    expect(resume.getByText("Resume PDF coming soon")).toBeTruthy();
+    expect(resume.getByText("Open to Work")).toBeTruthy();
+    expect(
+      resume.getByText("IT Support | Network & Systems Support | Service Desk"),
+    ).toBeTruthy();
+    expect(resume.getByText("Curtin University")).toBeTruthy();
+    expect(resume.getByText("Curtin College")).toBeTruthy();
+    expect(resume.getByText("Inspire Broadband, Dhaka")).toBeTruthy();
+    expect(resume.getByText("December 2022 – Present")).toBeTruthy();
+    expect(resume.getByText("Self-directed technical project")).toBeTruthy();
+    const skills = resume.getByRole("region", { name: "Technical skills" });
+    const groups = within(skills);
+    expect(groups.getByRole("region", { name: "Networking" })).toBeTruthy();
+    fireEvent.click(
+      groups.getByRole("button", { name: "Windows administration" }),
+    );
+    expect(
+      groups
+        .getByRole("button", { name: "Windows administration" })
+        .getAttribute("aria-pressed"),
+    ).toBe("true");
+    expect(groups.queryByRole("region", { name: "Networking" })).toBeNull();
+    expect(groups.getByText("Active Directory")).toBeTruthy();
+    fireEvent.click(groups.getByRole("button", { name: "All skills" }));
+    expect(groups.getByRole("region", { name: "Networking" })).toBeTruthy();
+    const panel = screen.getByRole("region", { name: "Resume window" });
+    expect(
+      panel.querySelector('a[download], a[href^="tel:"], a[href^="mailto:"]'),
+    ).toBeNull();
+    expect(panel.textContent).not.toMatch(/visa|@|\+61/iu);
   });
   it("minimizes, restores, maximizes, closes and reopens a window", () => {
     render(<App />);

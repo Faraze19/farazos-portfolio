@@ -7,7 +7,6 @@ import {
   Code2,
   Network,
   ShieldCheck,
-  FileText,
   Clock3,
   ChevronRight,
   Folder,
@@ -18,6 +17,7 @@ import {
 import { useState } from "react";
 import type { AppId } from "../lib/apps";
 import { Terminal } from "./Terminal";
+import { Resume } from "./Resume";
 import { NetworkLab, SecurityLab } from "./Labs";
 type Props = { id: AppId; open: (id: AppId) => void };
 export function AppContent({ id, open }: Props) {
@@ -118,43 +118,7 @@ export function AppContent({ id, open }: Props) {
         </div>
       </div>
     );
-  if (id === "resume")
-    return (
-      <div className="app-page">
-        <div className="eyebrow">RESUME / FARAJ ENAM ARIZ</div>
-        <h2>The story so far.</h2>
-        <p className="intro">Perth, Western Australia</p>
-        <div className="notice">
-          <FileText size={18} /> A verified resume has not been added yet. No
-          employment, education or achievements are claimed here.
-        </div>
-        <div className="resume-sections">
-          {["Professional experience", "Education", "Certifications"].map(
-            (title, i) => (
-              <section key={title}>
-                <span className="section-index">0{i + 1}</span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>Awaiting verified details from Faraj Enam Ariz.</p>
-                </div>
-                <span className="pill">To be added</span>
-              </section>
-            ),
-          )}
-        </div>
-        <div className="detail-box">
-          <h3>Looking for more information?</h3>
-          <p>
-            The Contact app lists the current contact status. A downloadable
-            resume will appear here once supplied and approved.
-          </p>
-          <button className="text-button" onClick={() => open("contact")}>
-            Open Contact
-            <ArrowUpRight size={15} />
-          </button>
-        </div>
-      </div>
-    );
+  if (id === "resume") return <Resume />;
   if (id === "projects")
     return (
       <div className="app-page">
