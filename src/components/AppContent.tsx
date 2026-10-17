@@ -18,6 +18,7 @@ import { useState } from "react";
 import type { AppId } from "../lib/apps";
 import { Terminal } from "./Terminal";
 import { Resume } from "./Resume";
+import { HomeLabCaseStudy } from "./HomeLabCaseStudy";
 import { ResumeSkills } from "./ResumeSkills";
 import { NetworkLab, SecurityLab } from "./Labs";
 type Props = { id: AppId; open: (id: AppId) => void };
@@ -146,23 +147,7 @@ export function AppContent({ id, open }: Props) {
         <p className="intro">
           A home for documented builds, experiments and lessons learned.
         </p>
-        <article
-          className="detail-box home-lab-project"
-          aria-labelledby="home-lab-title"
-        >
-          <span className="eyebrow">SELF-DIRECTED TECHNICAL PROJECT</span>
-          <h3 id="home-lab-title">
-            <Server size={20} aria-hidden="true" /> Enterprise Infrastructure
-            Home Lab
-          </h3>
-          <p>
-            Windows Server 2022, Windows 11, Active Directory, Group Policy,
-            DNS, DHCP, VMware, GNS3 and pfSense.
-          </p>
-          <p>
-            Configured users, file permissions, VLANs, firewall rules and NAT.
-          </p>
-        </article>
+        <HomeLabCaseStudy />
         <h3>Planned ideas</h3>
         <div className="notice">
           The ideas below are planned, not completed work.
