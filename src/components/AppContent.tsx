@@ -1,5 +1,8 @@
 import {
   ArrowUpRight,
+  Headset,
+  Server,
+  UsersRound,
   MapPin,
   Code2,
   Network,
@@ -42,29 +45,61 @@ export function AppContent({ id, open }: Props) {
           <h1>
             Faraj Enam Ariz<span>.</span>
           </h1>
-          <p className="about-intro">
-            A curious mind.
-            <br />
-            An IT-focused world.
+          <p className="about-intro professional-headline">
+            Computer Systems &amp; Networking Graduate | IT Support | Networking
+            | Cybersecurity
           </p>
-          <p className="bio">
-            Welcome to my corner of the internet. FarazOS is an interactive
-            space for my IT journey — bringing together networking,
-            cybersecurity and the joy of figuring things out.
-          </p>
-          <p className="bio secondary">
-            Take a look around. Open a window, explore a lab, or say hello.
-          </p>
-          <div className="interest-row">
-            <span>
-              <Network size={14} /> Networking
+          <div
+            className="interest-row"
+            role="list"
+            aria-label="Professional skills"
+          >
+            <span role="listitem">
+              <Headset size={14} aria-hidden="true" /> IT Support
             </span>
-            <span>
-              <ShieldCheck size={14} /> Cybersecurity
+            <span role="listitem">
+              <Network size={14} aria-hidden="true" /> Networking
             </span>
-            <span>
-              <Code2 size={14} /> Technology
+            <span role="listitem">
+              <Server size={14} aria-hidden="true" /> Windows Server
             </span>
+            <span role="listitem">
+              <UsersRound size={14} aria-hidden="true" /> Active Directory
+            </span>
+            <span role="listitem">
+              <ShieldCheck size={14} aria-hidden="true" /> Cybersecurity
+            </span>
+          </div>
+          <div className="professional-summary">
+            <p className="bio">
+              I'm a Computer Systems and Networking graduate from{" "}
+              <strong>Curtin University</strong>, based in Perth, Western
+              Australia, with a passion for IT infrastructure, networking,
+              cybersecurity and technical problem-solving.
+            </p>
+            <p className="bio">
+              My experience includes junior network support at{" "}
+              <strong>Inspire Broadband</strong>, where I assisted with
+              troubleshooting connectivity, DNS, latency and gateway issues.
+              I've also developed practical infrastructure skills through a
+              self-directed enterprise home lab using Windows Server, Active
+              Directory, VMware, GNS3 and pfSense.
+            </p>
+            <p className="bio">
+              Alongside my technical background, my experience as a Shift
+              Manager at
+              <strong> McDonald's</strong> has strengthened my communication,
+              leadership and problem-solving skills in fast-paced environments.
+            </p>
+            <p className="bio">
+              I'm currently seeking opportunities in{" "}
+              <strong>
+                IT Support, Service Desk, Network Support, NOC and junior
+                infrastructure roles
+              </strong>{" "}
+              where I can apply my technical knowledge and continue developing
+              professionally.
+            </p>
           </div>
           <div className="about-actions">
             <button className="primary-button" onClick={() => open("projects")}>
@@ -77,8 +112,8 @@ export function AppContent({ id, open }: Props) {
             </button>
           </div>
           <div className="profile-note">
-            <span className="status-dot" /> Portfolio in progress{" "}
-            <span>Career details & project evidence coming soon</span>
+            <span className="status-dot" /> Open to IT opportunities{" "}
+            <span>Perth, Western Australia</span>
           </div>
         </div>
       </div>

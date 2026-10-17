@@ -621,6 +621,26 @@ a {
   margin-top: 17px;
   max-width: 490px;
 }
+.about-page .professional-headline {
+  font-size: clamp(15px, 2.2vw, 19px);
+  line-height: 1.6;
+  letter-spacing: -0.25px;
+  text-wrap: pretty;
+}
+.about-page .professional-summary {
+  margin-top: 24px;
+  padding-top: 5px;
+  border-top: 1px solid #dce5ee;
+}
+.about-page .professional-summary .bio {
+  max-width: none;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.about-page .professional-summary strong {
+  color: #345470;
+  font-weight: 600;
+}
 .bio.secondary {
   margin-top: 7px;
 }
