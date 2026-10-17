@@ -45,6 +45,13 @@ describe("desktop applications", () => {
         screen.getByRole("region", { name: `${title} window` }),
       ).toBeTruthy();
     }
+    expect(
+      screen.getByRole("heading", { name: "Faraj Enam Ariz." }),
+    ).toBeTruthy();
+    expect(screen.getByText("RESUME / FARAJ ENAM ARIZ")).toBeTruthy();
+    expect(
+      screen.getByText("Faraj Enam Ariz · Perth, Western Australia"),
+    ).toBeTruthy();
     expect(screen.getByText("Contact details coming soon")).toBeTruthy();
     expect(
       screen.getByText(
@@ -98,6 +105,7 @@ describe("desktop applications", () => {
     expect(document.activeElement).toBe(search);
     fireEvent.change(search, { target: { value: "network" } });
     const menu = screen.getByRole("dialog", { name: "Start menu" });
+    expect(within(menu).getByText("Faraj Enam Ariz")).toBeTruthy();
     expect(
       within(menu).getByRole("button", { name: /Network Lab/ }),
     ).toBeTruthy();
@@ -122,8 +130,9 @@ describe("desktop applications", () => {
       fireEvent.change(input, { target: { value: command } });
       fireEvent.submit(input.closest("form")!);
     };
+    expect(screen.getByText("faraz@farazos:~$")).toBeTruthy();
     submit("whoami");
-    expect(screen.getByRole("log").textContent).toContain("Faraz Enam");
+    expect(screen.getByRole("log").textContent).toContain("Faraj Enam Ariz");
     submit("<script>alert(1)</script>");
     expect(screen.getByRole("log").querySelector("script")).toBeNull();
     expect(screen.getByRole("log").textContent).toContain("Command not found:");

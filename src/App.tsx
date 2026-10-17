@@ -143,7 +143,7 @@ export default function App() {
               And a healthy dose of curiosity.
             </p>
             <button onClick={() => open("about")}>
-              Meet Faraz
+              Meet Faraj Enam Ariz
               <ChevronRight size={14} />
             </button>
           </aside>

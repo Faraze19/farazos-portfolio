@@ -5,7 +5,7 @@ describe("safe terminal simulation", () => {
     for (const command of commandNames)
       expect(typeof runCommand(command)).toBe("string");
     expect(runCommand(" HELP ")).toContain("Available commands");
-    expect(runCommand("whoami")).toContain("Faraz Enam");
+    expect(runCommand("whoami")).toContain("Faraj Enam Ariz");
     expect(runCommand("skills")).toContain("not yet been verified");
     expect(runCommand("projects")).toContain("illustrative");
     expect(runCommand("clear")).toBe("");

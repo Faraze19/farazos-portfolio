@@ -40,7 +40,7 @@ export function AppContent({ id, open }: Props) {
           </div>
           <div className="eyebrow welcome-label">HELLO, WORLD. I’M</div>
           <h1>
-            Faraz Enam<span>.</span>
+            Faraj Enam Ariz<span>.</span>
           </h1>
           <p className="about-intro">
             A curious mind.
@@ -86,7 +86,7 @@ export function AppContent({ id, open }: Props) {
   if (id === "resume")
     return (
       <div className="app-page">
-        <div className="eyebrow">RESUME / FARAZ ENAM</div>
+        <div className="eyebrow">RESUME / FARAJ ENAM ARIZ</div>
         <h2>The story so far.</h2>
         <p className="intro">Perth, Western Australia</p>
         <div className="notice">
@@ -100,7 +100,7 @@ export function AppContent({ id, open }: Props) {
                 <span className="section-index">0{i + 1}</span>
                 <div>
                   <h3>{title}</h3>
-                  <p>Awaiting verified details from Faraz.</p>
+                  <p>Awaiting verified details from Faraj Enam Ariz.</p>
                 </div>
                 <span className="pill">To be added</span>
               </section>
@@ -250,7 +250,7 @@ function Contact() {
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(
-        "Faraz Enam — Perth, Western Australia",
+        "Faraj Enam Ariz — Perth, Western Australia",
       );
       setCopied(true);
       setError(false);
@@ -269,7 +269,7 @@ function Contact() {
         <br />
         with a conversation.
       </h2>
-      <p className="intro">Faraz Enam · Perth, Western Australia</p>
+      <p className="intro">Faraj Enam Ariz · Perth, Western Australia</p>
       <div className="detail-box">
         <h3>Contact details coming soon</h3>
         <p>
@@ -284,9 +284,9 @@ function Contact() {
       </button>
       <p className="copy-status" role="status">
         {error
-          ? "Clipboard unavailable. You can select: Faraz Enam — Perth, Western Australia."
+          ? "Clipboard unavailable. You can select: Faraj Enam Ariz — Perth, Western Australia."
           : copied
-            ? "Copied Faraz’s name and location to your clipboard."
+            ? "Copied Faraj Enam Ariz’s name and location to your clipboard."
             : ""}
       </p>
     </div>

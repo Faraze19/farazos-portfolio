@@ -1,6 +1,6 @@
 # FarazOS — Phase 1
 
-An original interactive IT portfolio for **Faraz Enam**, based in **Perth, Western Australia**. Windows XP desktop nostalgia meets a modern navy, blue and cyan identity. The general desktop interaction concept was referenced from https://a4feef.github.io/portfolio/; no source code or assets were copied. Wallpaper, wordmark and favicon are original CSS/SVG; application icons are from Lucide.
+An original interactive IT portfolio for **Faraj Enam Ariz**, based in **Perth, Western Australia**. Windows XP desktop nostalgia meets a modern navy, blue and cyan identity. The general desktop interaction concept was referenced from https://a4feef.github.io/portfolio/; no source code or assets were copied. Wallpaper, wordmark and favicon are original CSS/SVG; application icons are from Lucide.
 
 ## Install and preview
 

@@ -55,7 +55,7 @@ export function StartMenu({
         <div className="start-profile">
           <span className="start-avatar">fe</span>
           <div>
-            <strong>Faraz Enam</strong>
+            <strong>Faraj Enam Ariz</strong>
             <span>
               <MapPin size={12} /> Perth, Western Australia
             </span>
