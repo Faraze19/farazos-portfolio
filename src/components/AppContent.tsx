@@ -1,10 +1,10 @@
 import {
   ArrowUpRight,
+  GraduationCap,
   Headset,
   Server,
   UsersRound,
   MapPin,
-  Code2,
   Network,
   ShieldCheck,
   Clock3,
@@ -18,6 +18,7 @@ import { useState } from "react";
 import type { AppId } from "../lib/apps";
 import { Terminal } from "./Terminal";
 import { Resume } from "./Resume";
+import { ResumeSkills } from "./ResumeSkills";
 import { NetworkLab, SecurityLab } from "./Labs";
 type Props = { id: AppId; open: (id: AppId) => void };
 export function AppContent({ id, open }: Props) {
@@ -78,18 +79,14 @@ export function AppContent({ id, open }: Props) {
               cybersecurity and technical problem-solving.
             </p>
             <p className="bio">
-              My experience includes junior network support at{" "}
-              <strong>Inspire Broadband</strong>, where I assisted with
-              troubleshooting connectivity, DNS, latency and gateway issues.
-              I've also developed practical infrastructure skills through a
-              self-directed enterprise home lab using Windows Server, Active
-              Directory, VMware, GNS3 and pfSense.
+              My background brings together junior network support and a
+              self-directed enterprise infrastructure home lab. I enjoy turning
+              technical challenges into practical solutions.
             </p>
             <p className="bio">
               Alongside my technical background, my experience as a Shift
-              Manager at
-              <strong> McDonald's</strong> has strengthened my communication,
-              leadership and problem-solving skills in fast-paced environments.
+              Manager has strengthened my communication, leadership and
+              problem-solving skills in fast-paced environments.
             </p>
             <p className="bio">
               I'm currently seeking opportunities in{" "}
@@ -101,6 +98,28 @@ export function AppContent({ id, open }: Props) {
               professionally.
             </p>
           </div>
+          <section
+            className="about-education"
+            aria-labelledby="about-education-title"
+          >
+            <h2 id="about-education-title">
+              <GraduationCap size={19} aria-hidden="true" /> Education
+            </h2>
+            <div className="education-entry">
+              <div>
+                <h3>Curtin University</h3>
+                <p>Bachelor of Technology (Computer Systems and Networking)</p>
+              </div>
+              <span className="resume-date">2025</span>
+            </div>
+            <div className="education-entry">
+              <div>
+                <h3>Curtin College</h3>
+                <p>Diploma of Information Technology</p>
+              </div>
+              <span className="resume-date">2022</span>
+            </div>
+          </section>
           <div className="about-actions">
             <button className="primary-button" onClick={() => open("projects")}>
               Explore my workspace
@@ -123,13 +142,30 @@ export function AppContent({ id, open }: Props) {
     return (
       <div className="app-page">
         <div className="eyebrow">PROJECTS / WORKSPACE</div>
-        <h2>Room for what’s next.</h2>
+        <h2>Projects &amp; experiments.</h2>
         <p className="intro">
           A home for documented builds, experiments and lessons learned.
         </p>
+        <article
+          className="detail-box home-lab-project"
+          aria-labelledby="home-lab-title"
+        >
+          <span className="eyebrow">SELF-DIRECTED TECHNICAL PROJECT</span>
+          <h3 id="home-lab-title">
+            <Server size={20} aria-hidden="true" /> Enterprise Infrastructure
+            Home Lab
+          </h3>
+          <p>
+            Windows Server 2022, Windows 11, Active Directory, Group Policy,
+            DNS, DHCP, VMware, GNS3 and pfSense.
+          </p>
+          <p>
+            Configured users, file permissions, VLANs, firewall rules and NAT.
+          </p>
+        </article>
+        <h3>Planned ideas</h3>
         <div className="notice">
-          No completed projects have been verified. The entries below are
-          planned ideas, not finished work.
+          The ideas below are planned, not completed work.
         </div>
         <div className="project-list">
           {[
@@ -186,52 +222,7 @@ export function AppContent({ id, open }: Props) {
       <p className="intro">
         An evolving space for knowledge and verified credentials.
       </p>
-      <div className="notice">
-        These are portfolio learning areas. Skill levels, practical experience
-        and certifications are awaiting verification.
-      </div>
-      <div className="skill-grid">
-        {[
-          {
-            title: "Networking",
-            icon: Network,
-            items: [
-              "TCP/IP & addressing",
-              "Routing & switching",
-              "Network troubleshooting",
-            ],
-          },
-          {
-            title: "Cybersecurity",
-            icon: ShieldCheck,
-            items: [
-              "Security fundamentals",
-              "Threat awareness",
-              "Defensive thinking",
-            ],
-          },
-          {
-            title: "IT support",
-            icon: Code2,
-            items: [
-              "Operating systems",
-              "Troubleshooting methods",
-              "Technical documentation",
-            ],
-          },
-        ].map((group) => (
-          <section className="skill-card" key={group.title}>
-            <group.icon size={24} />
-            <h3>{group.title}</h3>
-            <span className="eyebrow">LEARNING AREA</span>
-            <ul>
-              {group.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </section>
-        ))}
-      </div>
+      <ResumeSkills />
       <div className="detail-box">
         <h3>Certification cabinet</h3>
         <p>

@@ -2361,3 +2361,84 @@ h3 {
     min-height: 40px;
   }
 }
+
+/* Content organisation within the existing applications. */
+.about-education {
+  margin-top: 25px;
+  padding-top: 21px;
+  border-top: 1px solid #dce5ee;
+}
+.about-education h2 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #345470;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+.education-entry {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 0;
+}
+.education-entry + .education-entry {
+  border-top: 1px solid #e0e8f0;
+}
+.education-entry h3 {
+  font-size: 12px;
+}
+.education-entry p {
+  font-size: 11px;
+  color: #62768c;
+  line-height: 1.8;
+  margin-top: 5px;
+}
+.education-entry .resume-date {
+  margin-top: 0;
+  flex-shrink: 0;
+}
+.career-timeline {
+  list-style: none;
+  margin: 20px 0 0 7px;
+  padding: 0 0 0 22px;
+  border-left: 1px solid #b4cddc;
+}
+.career-timeline > li {
+  position: relative;
+  padding-bottom: 22px;
+}
+.career-timeline > li:last-child {
+  padding-bottom: 0;
+}
+.career-timeline > li::before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: -27px;
+  top: 21px;
+  background: #559aaf;
+  border: 2px solid #eaf3f8;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #8bb6c7;
+}
+.career-timeline .resume-card h4 {
+  font-size: 13px;
+}
+.career-timeline .resume-date {
+  font-weight: 400;
+}
+.home-lab-project h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+.home-lab-project h3 svg {
+  flex-shrink: 0;
+  color: #477a98;
+}

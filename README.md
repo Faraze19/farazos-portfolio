@@ -52,7 +52,9 @@ Only `help`, `whoami`, `about`, `skills`, `projects`, `clear` and `date` are rec
 
 ## Content and honesty
 
-Only the supplied name, location and portfolio direction are treated as confirmed. Employment history, education, credentials, contact addresses and completed project evidence are deliberately absent. Planned project ideas, learning areas and lab demos are labelled accordingly. Add verified content in `src/components/AppContent.tsx`; update the terminal copy in `src/lib/terminal.ts` at the same time. Add a resume download or professional links only when real, approved assets/details exist.
+Content is based on the owner's supplied background. About Me contains the professional introduction, education and career goals; Resume contains only the professional work timeline and the disabled PDF download; Projects contains the supplied Enterprise Infrastructure Home Lab summary and clearly labelled planned ideas. Skills & Certifications contains all eight skill categories, filters, optional experience labels, verification status and the certification cabinet. No verified certifications are listed, and no approved resume PDF is available.
+
+`src/lib/resumeSkills.ts` preserves the reviewable skill catalog and supporting evidence. Confirmed means supported by the owner's supplied background, not independent assessment. Proposed skills are hidden by default and explicitly labelled when revealed; they cannot receive proficiency labels. Do not promote a proposal or enable the PDF download without confirmation and a real approved asset. No personal phone, email or visa details are displayed. Terminal commands provide short guides to the relevant apps rather than duplicating detailed content.
 
 ## Structure
 
@@ -62,6 +64,9 @@ src/
   components/Window.tsx       Accessible window shell and drag controls
   components/StartMenu.tsx    Search and keyboard navigation
   components/AppContent.tsx   Portfolio content
+  components/Resume.tsx       Professional work experience timeline
+  components/ResumeSkills.tsx Eight-category skills interface used in Skills & Certifications
+  lib/resumeSkills.ts         Skill verification catalog and supporting evidence
   components/Terminal.tsx     Terminal history and input
   components/Labs.tsx         Interactive simulated labs
   hooks/useWindows.ts         Typed window state reducer

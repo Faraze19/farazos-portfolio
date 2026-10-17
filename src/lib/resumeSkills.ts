@@ -1,5 +1,5 @@
 /**
- * Review configuration for Resume only. "confirmed" means supported by the
+ * Review configuration for Skills & Certifications. "confirmed" means supported by the
  * owner's previously supplied background, not an independently assessed level.
  * New suggestions must stay "proposed" until the owner confirms evidence.
  * Do not infer Currently Learning merely from a proposed skill.

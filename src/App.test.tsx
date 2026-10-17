@@ -62,7 +62,7 @@ describe("desktop applications", () => {
       ),
     ).toBeTruthy();
   });
-  it("keeps resume downloads unavailable and filters the supplied technical skills", () => {
+  it("places each detail in its intended app and keeps Resume focused on work", () => {
     render(<App />);
     fireEvent.click(
       within(
@@ -82,13 +82,68 @@ describe("desktop applications", () => {
     expect(
       resume.getByText("IT Support | Network & Systems Support | Service Desk"),
     ).toBeTruthy();
-    expect(resume.getByText("Curtin University")).toBeTruthy();
-    expect(resume.getByText("Curtin College")).toBeTruthy();
-    expect(resume.getByText("Inspire Broadband, Dhaka")).toBeTruthy();
-    expect(resume.getByText("December 2022 – Present")).toBeTruthy();
-    expect(resume.getByText("Self-directed technical project")).toBeTruthy();
-    const skills = resume.getByRole("region", { name: "Technical skills" });
+    expect(resume.queryByText("Curtin University")).toBeNull();
+    expect(
+      resume.queryByRole("region", { name: "Technical skills" }),
+    ).toBeNull();
+    expect(resume.queryByText("Enterprise Infrastructure Home Lab")).toBeNull();
+    const timeline = resume.getByRole("list", { name: "Career timeline" });
+    const entries = within(timeline).getAllByRole("listitem");
+    expect(entries).toHaveLength(2);
+    expect(entries[0].textContent).toContain("Shift Manager");
+    expect(entries[1].textContent).toContain("Junior Network Support");
+    const firstCard = entries[0].querySelector("details")!;
+    fireEvent.click(firstCard.querySelector("summary")!);
+    expect(firstCard.open).toBe(false);
+    fireEvent.click(firstCard.querySelector("summary")!);
+    expect(firstCard.open).toBe(true);
+    const icons = within(
+      screen.getByRole("navigation", { name: "Desktop applications" }),
+    );
+    expect(icons.getAllByRole("button")).toHaveLength(8);
+    fireEvent.click(icons.getByRole("button", { name: "About Me" }));
+    const about = within(
+      screen.getByRole("region", { name: "About Me window" }),
+    );
+    const education = within(about.getByRole("region", { name: "Education" }));
+    expect(education.getByText("Curtin University")).toBeTruthy();
+    expect(
+      education.getByText(
+        "Bachelor of Technology (Computer Systems and Networking)",
+      ),
+    ).toBeTruthy();
+    expect(education.getByText("Curtin College")).toBeTruthy();
+    expect(
+      education.getByText("Diploma of Information Technology"),
+    ).toBeTruthy();
+    expect(education.getByText("2025")).toBeTruthy();
+    expect(education.getByText("2022")).toBeTruthy();
+    fireEvent.click(icons.getByRole("button", { name: "Projects" }));
+    const projects = within(
+      screen.getByRole("region", { name: "Projects window" }),
+    );
+    expect(
+      projects.getByRole("article", {
+        name: "Enterprise Infrastructure Home Lab",
+      }),
+    ).toBeTruthy();
+    expect(
+      projects.getByText(
+        "Configured users, file permissions, VLANs, firewall rules and NAT.",
+      ),
+    ).toBeTruthy();
+    fireEvent.click(
+      icons.getByRole("button", { name: "Skills & Certifications" }),
+    );
+    const skillsApp = within(
+      screen.getByRole("region", { name: "Skills & Certifications window" }),
+    );
+    const skills = skillsApp.getByRole("region", { name: "Technical skills" });
     const groups = within(skills);
+    expect(groups.getAllByRole("region")).toHaveLength(8);
+    expect(
+      skillsApp.getByRole("heading", { name: "Certification cabinet" }),
+    ).toBeTruthy();
     expect(
       groups.getByRole("region", { name: "Networking & Infrastructure" }),
     ).toBeTruthy();

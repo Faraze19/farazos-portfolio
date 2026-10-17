@@ -6,7 +6,17 @@ describe("safe terminal simulation", () => {
       expect(typeof runCommand(command)).toBe("string");
     expect(runCommand(" HELP ")).toContain("Available commands");
     expect(runCommand("whoami")).toContain("Faraj Enam Ariz");
-    expect(runCommand("skills")).toContain("not yet been verified");
+    expect(runCommand("whoami")).toContain(
+      "Resume for professional work experience",
+    );
+    expect(runCommand("about")).toContain(
+      "introduction, education and career goals",
+    );
+    expect(runCommand("skills")).toContain("Skills & Certifications");
+    expect(runCommand("skills")).toContain("proposed skills are unverified");
+    expect(runCommand("projects")).toContain(
+      "Enterprise Infrastructure Home Lab",
+    );
     expect(runCommand("projects")).toContain("illustrative");
     expect(runCommand("clear")).toBe("");
   });
